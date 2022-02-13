@@ -1,0 +1,204 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>ATR_5451_11</title>
+  <style>
+    html,
+    body,
+    #viewDiv {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+  <link rel="stylesheet" href="https://js.arcgis.com/4.22/esri/themes/light/main.css">
+  <script src="https://js.arcgis.com/4.22/"></script>
+  <script>
+
+    require([
+      "esri/config",
+      "esri/Map",
+      "esri/views/MapView",
+
+      "esri/Graphic",
+      "esri/layers/GraphicsLayer"
+
+    ], function (esriConfig, Map, MapView, Graphic, GraphicsLayer) {
+
+      esriConfig.apiKey = "AAPK2015b3150a26403cb7b1b67e908c1601Y3pRChfcq5r-2aJ7BSJTmLdXCqYLmpGHZE7XuGRAc82DupLDIg6IFLebyfyRDZAs";
+    
+      const map = new Map({
+        basemap: "arcgis-topographic" //Basemap layer service
+      });
+
+          const view = new MapView({
+        map: map,
+        center: [38.7578, 8.9806], //Longitude, latitude
+        zoom: 12,
+        container: "viewDiv"
+      });
+
+      const graphicsLayer = new GraphicsLayer();
+      map.add(graphicsLayer);
+      const points=[
+      {
+        type: "point",
+        longitude: 38.87216859,
+        latitude: 9.021364028
+      },
+     {
+        type: "point",
+        longitude: 38.76304143,
+        latitude: 9.030277740
+      },
+      {
+        type: "point",
+        longitude: 38.76329892,
+        latitude: 9.040566171
+      },
+      {
+        type: "point",
+        longitude: 38.79250658,
+        latitude: 8.991705345
+      },
+      {
+          type: "point",
+          longitude: 38.75454666,
+          latitude: 9.026910021
+        },
+        {
+          type: "point",
+          longitude: 38.75528775,
+          latitude: 9.030605715
+        },
+        {
+          type: "point",
+          longitude: 38.72252045,
+          latitude: 9.012345596
+        },
+        {
+          type: "point",
+          longitude: 38.78707117,
+          latitude: 8.952447273
+        },
+        {
+          type: "point",
+          longitude: 38.78554632,
+          latitude: 8.990288749
+        },
+        {
+          type: "point",
+          longitude: 38.83044698,
+          latitude: 8.991232158
+        },
+         {
+          type: "point",
+          longitude: 38.73826151,
+          latitude: 8.995036009
+        },
+        {
+          type: "point",
+          longitude: 38.81408978,
+          latitude: 9.019430263
+        },
+        {
+          type: "point",
+          longitude: 38.78923498,
+          latitude: 9.004531370
+        },
+        {
+          type: "point",
+          longitude: 38.76415041,
+          latitude: 8.957514773
+        },
+        {
+          type: "point",
+          longitude: 38.72770084,
+          latitude: 9.047848686
+        },
+        {
+          type: "point",
+          longitude: 38.77960003,
+          latitude: 9.002497669
+        },
+        {
+          type: "point",
+          longitude: 38.76675005,
+          latitude: 9.017040136
+        },
+        {
+          type: "point",
+          longitude: 38.74720688,
+          latitude: 9.01249541
+        },
+        {
+          type: "point",
+          longitude: 38.76554665,
+          latitude: 8.991230252
+        },
+        {
+          type: "point",
+          longitude: 38.82110203,
+          latitude: 9.024493142
+        },
+        {
+          type: "point",
+          longitude: 38.74011576,
+          latitude: 9.033763204
+        },
+        {
+          type: "point",
+          longitude: 38.85808359,
+          latitude: 8.990071064
+        },
+        {
+          type: "point",
+          longitude: 38.84163562,
+          latitude: 9.021326439
+        },
+        {
+          type: "point",
+          longitude: 38.76110997,
+          latitude: 9.065137831
+        },
+        {
+          type: "point",
+          longitude: 38.88899713,
+          latitude: 8.974305254
+        },
+    ];
+   
+      const simpleMarkerSymbol = {
+        type: "simple-marker",
+        color: [255, 0, 221],  
+        outline: {
+          color: [255, 255, 255], 
+          width: 1
+        }
+      };
+
+      points.forEach(point => {
+          const pointGraphic = new Graphic({
+          geometry: point,
+          symbol: simpleMarkerSymbol
+        });
+        graphicsLayer.add(pointGraphic);
+      });
+
+      
+     
+
+    });
+  </script>
+</head>
+
+<body>
+  <div id="viewDiv"></div>
+</body>
+
+</html>
